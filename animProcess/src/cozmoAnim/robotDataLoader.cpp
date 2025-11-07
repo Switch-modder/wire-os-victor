@@ -53,8 +53,8 @@ const char* kPathToExternalIndependentSprites = "assets/sprites/independentSprit
 const char* kPathToEngineIndependentSprites = "config/sprites/independentSprites/";
 const char* kPathToExternalSpriteSequences = "assets/sprites/spriteSequences/";
 const char* kPathToEngineSpriteSequences   = "config/sprites/spriteSequences/";
-const char* kPathToEngineBackpackLightsWireOS = "config/engine/lights/backpackLights/backpackLightsWireOS/";
-const char* kPathToEngineBackpackLightsAnki = "config/engine/lights/backpackLights/backpackLightsAnki/";
+const char* kPathToEngineBackpackLightsWireOS = "config/engine/lights/backpackLightsWireOS/";
+const char* kPathToEngineBackpackLightsAnki = "config/engine/lights/backpackLightsAnki/";
 const char* kPathToEngineBackpackLightsUser = "../../../../data/data/customBackpackLights/";
 const char* kProceduralAnimName = "_PROCEDURAL_";
 
@@ -187,13 +187,13 @@ void RobotDataLoader::LoadNonConfigData()
 
     
     if(_ankilights()){
-      const auto& fileInfo = animLoader.CollectAnimFiles({kPathToEngineBackpackLightsWireOS});
+      const auto& fileInfo = animLoader.CollectAnimFiles({kPathToEngineBackpackLightsAnki});
       LoadBackpackLightAnimations(fileInfo);
     } else if(_userlights()) {
       const auto& fileInfo = animLoader.CollectAnimFiles({kPathToEngineBackpackLightsUser});
       LoadBackpackLightAnimations(fileInfo);
     } else {
-      const auto& fileInfo = animLoader.CollectAnimFiles({kPathToEngineBackpackLightsAnki});
+      const auto& fileInfo = animLoader.CollectAnimFiles({kPathToEngineBackpackLightsWireOS});
       LoadBackpackLightAnimations(fileInfo);
     }
   }
