@@ -261,6 +261,10 @@ private:
 
 inline void ProceduralFace::SetParameter(WhichEye whichEye, Parameter param, Value value)
 {
+  if (param == Parameter::Saturation && IsXray()) {
+    value += 0.6f;
+  }
+
   _eyeParams[whichEye][static_cast<size_t>(param)] = Clip(whichEye, param, value);
 }
 
@@ -353,11 +357,16 @@ inline void ProceduralFace::ResetHueToDefault() {
 }
 
 inline void ProceduralFace::SetSaturation(Value saturation) {
-  _saturation = saturation;
-  if(!Util::InRange(_saturation, Value(0), Value(1)))
+  // if (IsXray()) {
+  //   _saturation = saturation + 0.2f;
+  // } else {
+    _saturation = saturation;
+  // }
+
+  if(!Util::InRange(_saturation, Value(0), Value(2)))
   {
-    ClipWarnFcn("Saturation", _saturation, Value(0), Value(1));
-    _saturation = Util::Clamp(_saturation, Value(0), Value(1));
+    ClipWarnFcn("Saturation", _saturation, Value(0), Value(2));
+    _saturation = Util::Clamp(_saturation, Value(0), Value(2));
   }
   // Update the saturation image (used for displaying FaceAnimations):
   GetSaturationImage().FillWith(static_cast<u8>(_saturation * std::numeric_limits<u8>::max()));
