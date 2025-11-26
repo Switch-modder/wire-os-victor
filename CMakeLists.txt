@@ -25,7 +25,7 @@ include(license)
 
 # These are used by some android cmake toolchains
 # They appear to be ignored by the android-sdk toolchain that works with gradle/Android Studio
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_C_STANDARD 11)

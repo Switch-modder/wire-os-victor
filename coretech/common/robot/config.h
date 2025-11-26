@@ -169,11 +169,11 @@ extern "C" {
 #include <float.h>
 #include <stdarg.h>
 
-#include "coretech/common/shared/types.h"
-
 #ifdef __cplusplus
 }
 #endif
+
+#include "coretech/common/shared/types.h"
 
 // To support 128-bit SIMD loads and stores. This should always be 16.
 #define MEMORY_ALIGNMENT_RAW 16 // Sometimes the preprocesor can't handle the safer version MEMORY_ALIGNMENT
